@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="958210ad-931d-431f-8b01-e4dfa490369f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Capstone1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/transactions/Transactions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/transactions/csv.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/transactions/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/transactions/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/transactions/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/transactions/Transaction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +35,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "Application.Transactions.executor": "Run",
     "Application.csv.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -47,8 +46,8 @@
   }
 }]]></component>
   <component name="RunManager">
-    <configuration name="Transactions" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="transactions.Transactions" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="transactions.Main" />
       <module name="LearnToCode_Capstones" />
       <extension name="coverage">
         <pattern>
@@ -62,7 +61,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Transactions" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -76,5 +75,19 @@
       <updated>1728672778636</updated>
     </task>
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.csv" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/transactions/Main.java</url>
+          <line>78</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

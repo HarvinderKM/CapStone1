@@ -1,4 +1,5 @@
-import org.w3c.dom.html.HTMLImageElement;
+package transactions;
+
 //makes data type called transaction
 //get and set variables into object transaction
 import java.time.LocalDate;
@@ -17,7 +18,7 @@ public class Transaction {
         this.amount = amount;
         this.vendor = vendor;
         this.description = description;
-
+    }
 
         public LocalTime getTime () {
             return time;
@@ -61,6 +62,6 @@ public class Transaction {
         }
 
 
-    }}
+    }
 
 // object
