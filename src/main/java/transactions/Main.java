@@ -45,7 +45,8 @@ public class Main { //main class
 
             System.out.println("Transaction has been Processed Successfully, GoodBye!");
 
-        } //make deposit method
+        } //make deposit methodon google why the execption wasn't printing what i said, i was missing the InputMismatchException
+        //I searched
         catch (InputMismatchException e){
             System.out.println("AN ERROR OCCURRED, TRY AGAIN");
         }
