@@ -42,9 +42,12 @@ public class Main { //main class
         // Transaction is my datatype
         //transactions name anything
         ArrayList<Transaction> entry = get_transaction(); // gget_transactiosn returns all the transacations assigned as an array
-        for (int i = 0; i <= entry.size(); i++) { // i = 0 , entry size until i is less or equal to the size of the file and prints all entries
+       int counter = 1;
+        for (int i = 0; i < entry.size(); i++) { // i = 0 , entry size until i is less o the size of the file and prints all entries
             Transaction p = entry.get(i);// gets 1st transaction, then printing that transaction below
+            System.out.println("Transaction " + counter); // lists transaction #
             System.out.println(p.getDate() + "\n " + p.getTime() + "\n " + p.getDescription() + " \n" + p.getVendor() + " \n" + p.getAmount());
+            counter++; //incrememts the count of the transaction
         }
     }
 
