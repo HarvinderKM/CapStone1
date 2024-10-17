@@ -11,36 +11,53 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Main { //main class
-    public static void makeDeposit () throws IOException { //make deposit method
-        Scanner homeScreen = new Scanner(System.in); // scanner for getting input
+    public static void makeDeposit () throws IOException {
+        //public = method is accessible for the public
+        // static = method belongs to the class itself (not objects) accessed through class name
+        // void = method doesn't return any value
+        // makeDeposit() = name of method
+        // throws IOException = a checked exception thrown when there's an input/output operation failure - we need to catch this by usign TRY-CATCH
 
-        System.out.println("How much are you depositing?"); //print out how much is a person going to deposit
-        double amount = homeScreen.nextDouble(); // the amount in decimals they're depositing
-        homeScreen.nextLine(); // will get what's left over at the next line
+        try{ //adding a try-catch function to
+            Scanner homeScreen = new Scanner(System.in); // scanner for getting input
 
-        LocalDate date = LocalDate.now(); // will give us the current date
+            System.out.println("How much are you depositing?"); //print out how much is a person going to deposit
+            double amount = homeScreen.nextDouble(); // the amount in decimals they're depositing
+            homeScreen.nextLine(); // will get what's left over at the next line
+
+            LocalDate date = LocalDate.now(); // will give us the current date
 //Osmig helped me figure out the "TruncatedTo(ChronoUnit.SECONDS) so I don't get nanoseconds
-        LocalTime time = LocalTime.now().truncatedTo(ChronoUnit.SECONDS); // current time in seconds
-        // time is variable
-        //LocalTime is a class that gives time in hr,min,sec,nanosec
-        // LocalTime.now() = method returns current time
-        // .truncatedto(ChronoUnit.SECONDS) = time will show up to seconds
+            LocalTime time = LocalTime.now().truncatedTo(ChronoUnit.SECONDS); // current time in seconds
+            // time is variable
+            //LocalTime is a class that gives time in hr,min,sec,nanosec
+            // LocalTime.now() = method returns current time
+            // .truncatedto(ChronoUnit.SECONDS) = time will show up to seconds
 
-        System.out.println("Name the vendor"); // asking who is the vendor
-        String vendor = homeScreen.nextLine(); // vendor is a string
+            System.out.println("Name the vendor"); // asking who is the vendor
+            String vendor = homeScreen.nextLine(); // vendor is a string
 
-        System.out.println("Describe the transaction"); // asking for a description for the transaction
-        String description = homeScreen.nextLine(); // description is a string
+            System.out.println("Describe the transaction"); // asking for a description for the transaction
+            String description = homeScreen.nextLine(); // description is a string
 
 
-        String transaction = date +"|"+ time + "|" + description + "|"+ vendor + "|"+ amount; // the format of the transaction with all variables
-        BufferedWriter buffer = new BufferedWriter(new FileWriter("transactions.csv",true)); // writes a line in transactions.csv file
-        buffer.write(transaction); //this writes the line
-        buffer.close(); // will write line on the transaction file
+            String transaction = "\n" + date +"|"+ time + "|" + description + "|"+ vendor + "|"+ amount; // the format of the transaction with all variables
+            BufferedWriter buffer = new BufferedWriter(new FileWriter("transactions.csv",true)); // writes a line in transactions.csv file
+            // BufferWriter writes to the csv file and appends data to file, stores data temp , best for records
+            buffer.write(transaction); //this writes the line
+            buffer.newLine(); // this will create a new line on csv file (might not need this)
+            buffer.close(); // will write line on the transaction file
 
+            System.out.println("Transaction has been Processed Successfully, GoodBye!");
+
+        } //make deposit method
+        catch (IOException e) {
+            // this pops up if the IOException error
+            System.out.println("AN ERROR OCCURED, TRY AGAIN");
+        }
     }
 
-    public static void allEntries () throws IOException { //
+
+    public static void allEntries () throws IOException {
         // This method to display all entries
         //pass in the array list
         // Transaction is my datatype
