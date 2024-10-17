@@ -4,10 +4,7 @@ import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.util.*;
 import java.util.regex.Pattern;
 
 public class Main { //main class
@@ -44,17 +41,20 @@ public class Main { //main class
             BufferedWriter buffer = new BufferedWriter(new FileWriter("transactions.csv",true)); // writes a line in transactions.csv file
             // BufferWriter writes to the csv file and appends data to file, stores data temp , best for records
             buffer.write(transaction); //this writes the line
-            buffer.newLine(); // this will create a new line on csv file (might not need this)
             buffer.close(); // will write line on the transaction file
 
             System.out.println("Transaction has been Processed Successfully, GoodBye!");
 
         } //make deposit method
-        catch (IOException e) {
-            // this pops up if the IOException error
-            System.out.println("AN ERROR OCCURED, TRY AGAIN");
+        catch (InputMismatchException e){
+            System.out.println("AN ERROR OCCURRED, TRY AGAIN");
         }
-    }
+            catch (IOException e) {
+        }
+            // this pops up if the IOException error
+            System.out.println("AN ERROR OCCURRED, TRY AGAIN");
+        }
+
 
 
     public static void allEntries () throws IOException {
