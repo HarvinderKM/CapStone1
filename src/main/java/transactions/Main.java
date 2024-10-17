@@ -1,12 +1,14 @@
 package transactions;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Main { //main class
     public static void makeDeposit () throws IOException { //make deposit method
@@ -33,6 +35,9 @@ public class Main { //main class
         buffer.close(); // will write line on the transaction file
 
     }
+
+
+    }
     public static void ledger () throws IOException { //method for ledger
         //ledgar will need to display new screen
         // screen must have options
@@ -51,7 +56,7 @@ public class Main { //main class
         switch //choose an option
         (input) {
             case "A":
-            case "a":
+            case "a": allEntries(); // displays all entries
                 ; // change this display all transactions (create a method?)
                 break;
             case "D":
@@ -71,6 +76,29 @@ public class Main { //main class
                 System.out.println("Invalid Option - Try Again!"); //this will get printed
                 ledger(); //will go back to the ledgar screen
         }}
+
+//void means do not return anything
+    // Arraylist will retirn an array list that has transactions inside of it
+    // Transaction = datatype , arraay of transaction
+    public static ArrayList<Transaction> get_transaction() throws IOException //creates a method for ALL TRANSACTIONS / each line
+    {
+        ArrayList<Transaction> transactions = new ArrayList<Transaction>(); //returning a transaction datatype, making a new array called transactions , everything split fron transaction file will be added into this array
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("transactions.csv")); // reads lines in transactions file
+        String input;
+
+        while((input = bufferedReader.readLine()) != null){ // while loop will go through all the lines in csv file
+            String[] item = input.split(Pattern.quote("|")); // splitting the string 1st line of the csv file , then assigning everything into a array of string , [] = array
+            //^^
+            Transaction transaction = new Transaction (LocalDate.parse(item[0]), LocalTime.parse(item [1]), item [2], item[3],Double.parseDouble(item[4])); // splits each line by item in order of line
+            // position 0 is date, 1 is time , 2 is
+            //
+            transactions.add(transaction);
+        }
+        Collections.sort(transactions, Comparator.comparing(Transaction::getDate).thenComparing(Transaction::getTime)); // sorting earliest date to latest, then compares earliest time
+        return transactions; // returns
+    }
+
+
     public static void makePayment () throws IOException { // payment method
         Scanner homeScreen = new Scanner(System.in); // takes in user input
 
