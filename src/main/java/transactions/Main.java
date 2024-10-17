@@ -37,8 +37,8 @@ public class Main { //main class
         //ledgar will need to display new screen
         // screen must have options
         // display the following options
-        System.out.println("LEDGAR");
-        System.out.println("Choose An Letter from the following");
+        System.out.println("LEDGAR"); // HAVE THE FOLLOWING OPTIONS POP UP SLOWLY
+        System.out.println("Choose An Option from the following (input letter)");
         System.out.println("A - Displays All Entries" );
         System.out.println("D - Display only deposits into the account");
         System.out.println("P - Payments, display only negative entries");
@@ -110,20 +110,21 @@ public class Main { //main class
         switch //choose an option
         (input){
             case "D":
-            case "d": makeDeposit();
+            case "d": makeDeposit(); // deposit method pops up
                 break;
             case "P":
-            case "p": makePayment();
+            case "p": makePayment(); // payment method pops up
                 break;
             case "L": ledger(); // if the user inputs L or L then the ledgar method will pop up
             case"l": ledger();
                 break;
             case "X":
-                System.out.println("okay bye!");
-                break;
+            case "x":
+                System.out.println("okay bye!"); // tell user bye
+                break; // exit screen
             default:
                 System.out.println("Invalid Option - Try Again!");
-                board();
+                board(); // invalid option go back to the main board
     }}
     public static void main(String[] args) throws IOException { //main method
         board();
