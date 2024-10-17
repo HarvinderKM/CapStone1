@@ -70,7 +70,7 @@ public class Main { //main class
         }}
 
 
-
+//Osmig helped explain how the ledgar screen works
     public static void ledger () throws IOException { //method for ledger
         //ledgar will need to display new screen
         // screen must have options
@@ -208,9 +208,9 @@ public class Main { //main class
                 break;
             case 2: previousMonth();
                 break;
-            case 3:
+            case 3: yearToDate();
                 break;
-            case 4:
+            case 4:previousYear();
                 break;
             case 5: vendor(get_transaction());
                 break; // exit screen
@@ -218,6 +218,7 @@ public class Main { //main class
             default:
         }
     }
+    // osmig helped explain to me how arrayLists work in the vendor
     public static void vendor (ArrayList<Transaction> transactions){ //search by vendor , search my name , all transaction w name pop up
         Scanner scanner = new Scanner(System.in);
         System.out.println("enter vendor");
@@ -244,7 +245,7 @@ public class Main { //main class
             }
         }
     }
-
+// osmig helped me fix why no transactions were showing up when I put -1 , had no transactions from the previous month in my transactions
     public static void previousMonth () throws IOException { // new method for previous month
         int currentMonth = LocalDate.now().getMonthValue(); //gets int value of the current month
         currentMonth = currentMonth -1; // gives us current month minus 1 which is previous month
@@ -261,6 +262,32 @@ public class Main { //main class
         }
     }
 
+    public static void yearToDate () throws IOException { // new method for current year
+        int currentYear = LocalDate.now().getYear(); //gets int value of the current year
+        ArrayList<Transaction> year = get_transaction (); // this assigns the transaction into a new one
+        int counter = 1; // counts
+        for (Transaction d: year) { //for loop, transaction d is current item in month array,
+            int yearForCsv = d.getDate().getYear(); // gettign the int value of the month in the csv file
+            if (currentYear == yearForCsv) { // checking if both years are the same, current and csv, it
+                System.out.println("Transaction " + counter); // lists transaction #
+                System.out.println(d.getDate() + "\n " + d.getTime() + "\n " + d.getDescription() + " \n" + d.getVendor() + " \n" + d.getAmount());
+
+                counter++; //increments the count of the transaction
+            }
+        }}
+    public static void previousYear () throws IOException { // new method for current year
+        int currentYear = LocalDate.now().getYear(); //gets int value of the current year
+        ArrayList<Transaction> year = get_transaction (); // this assigns the transaction into a new one
+        int counter = 1; // counts
+        for (Transaction d: year) { //for loop, transaction d is current item in month array,
+            int yearForCsv = d.getDate().getYear(); // gettign the int value of the month in the csv file
+            if ((currentYear -1) == yearForCsv) { // checking if both years are the same, current and csv, it
+                System.out.println("Transaction " + counter); // lists transaction #
+                System.out.println(d.getDate() + "\n " + d.getTime() + "\n " + d.getDescription() + " \n" + d.getVendor() + " \n" + d.getAmount());
+
+                counter++; //increments the count of the transaction
+            }
+        }}
 
     public static void main(String[] args) throws IOException { //main method
         board();
