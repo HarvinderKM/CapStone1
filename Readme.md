@@ -1,5 +1,13 @@
-# Harvinder Kaur 
- <h1> Hello </h1> 
-<h2> Hello </h2>
-<.
+# Capstone 1: Accounting Ledger 
+# By: Harvinder Kaur
+
+Description: 
+For this project my game plan was to create multiple classes/methods that each had their own function.
+
+
+Images of Application Screen: 
+
+
+Interesting peice of code: 
+
 
