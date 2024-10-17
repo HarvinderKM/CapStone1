@@ -192,7 +192,7 @@ public class Main { //main class
         System.out.println("BANK"); // fix this
         System.out.println("Choose An Option from the following");
         System.out.println("1 - Month to Date " );
-        System.out.println("2 - previous month t");
+        System.out.println("2 - previous month ");
         System.out.println("3 - year to date ");
         System.out.println("4 - previous year");
         System.out.println("5 - search by vendor");
@@ -206,7 +206,7 @@ public class Main { //main class
         (input) {
             case 1: MonthToDate(get_transaction());
                 break;
-            case 2:
+            case 2: previousMonth();
                 break;
             case 3:
                 break;
@@ -245,12 +245,14 @@ public class Main { //main class
         }
     }
 
-    public static void previousMonth (ArrayList<Transaction> transactions){ // new method for previous month
-        int currentMonth = LocalDate.now().getMonthValue(); //gets int alue of the current month
-        int counter = 1;
-        for (Transaction d: transactions) { //for loop,
+    public static void previousMonth () throws IOException { // new method for previous month
+        int currentMonth = LocalDate.now().getMonthValue(); //gets int value of the current month
+        currentMonth = currentMonth -1; // gives us current month minus 1 which is previous month
+        ArrayList<Transaction> month = get_transaction (); // this assigns the transaction into a new one
+        int counter = 1; // counts
+        for (Transaction d: month) { //for loop, transaction d is current item in month array,
             int monthForCsv = d.getDate().getMonthValue(); // gettign the int value of the month in the csv file
-            if (currentMonth == monthForCsv){ // checking if both months are the same, current and csv
+            if (currentMonth == monthForCsv) { // checking if both months are the same, current and csv
                 System.out.println("Transaction " + counter); // lists transaction #
                 System.out.println(d.getDate() + "\n " + d.getTime() + "\n " + d.getDescription() + " \n" + d.getVendor() + " \n" + d.getAmount());
 
