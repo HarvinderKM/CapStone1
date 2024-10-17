@@ -50,6 +50,18 @@ public class Main { //main class
             counter++; //incrememts the count of the transaction
         }
     }
+    public static void negPayments(ArrayList<Transaction> transactions){ //new method for payments
+        int counter = 1;
+        for (Transaction d: transactions) { //transactions is the argument passed into the function
+            if (d.getAmount()<0){ // will only bring us the negative transactions
+                System.out.println("Transaction " + counter); // lists transaction #
+                System.out.println(d.getDate() + "\n " + d.getTime() + "\n " + d.getDescription() + " \n" + d.getVendor() + " \n" + d.getAmount());
+                counter++; //increments the count of the transaction
+            }
+    }}
+
+
+
 
     public static void ledger () throws IOException { //method for ledger
         //ledgar will need to display new screen
@@ -74,10 +86,11 @@ public class Main { //main class
                 break;
             case "D":
             case "d":
-                makePayment(); // change this to display only positive entries (create a method)
+                // change this to display only positive entries (create a method)
                 break;
             case "P":
-            case "p": // create a method for displaying all negative transactions
+            case "p": // create a method for displaying all negative transactio/ns
+                negPayments(get_transaction()); // displays negpayments method , gets the transactions
                 break;
             case "R":
             case "r": // open a new screen that allows user to run predefined reports or a custom search
