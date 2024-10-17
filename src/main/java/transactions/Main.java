@@ -16,11 +16,15 @@ public class Main { //main class
 
         System.out.println("How much are you depositing?"); //print out how much is a person going to deposit
         double amount = homeScreen.nextDouble(); // the amount in decimals they're depositing
-        homeScreen.nextLine(); // will get what's left at the next line
+        homeScreen.nextLine(); // will get what's left over at the next line
 
         LocalDate date = LocalDate.now(); // will give us the current date
-
+//Osmig helped me figure out the "TruncatedTo(ChronoUnit.SECONDS) so I don't get nanoseconds
         LocalTime time = LocalTime.now().truncatedTo(ChronoUnit.SECONDS); // current time in seconds
+        // time is variable
+        //LocalTime is a class that gives time in hr,min,sec,nanosec
+        // LocalTime.now() = method returns current time
+        // .truncatedto(ChronoUnit.SECONDS) = time will show up to seconds
 
         System.out.println("Name the vendor"); // asking who is the vendor
         String vendor = homeScreen.nextLine(); // vendor is a string
