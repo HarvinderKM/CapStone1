@@ -59,7 +59,15 @@ public class Main { //main class
                 counter++; //increments the count of the transaction
             }
     }}
-
+    public static void allDeposits (ArrayList<Transaction> transactions){ //new method for deposits
+        int counter = 1;
+        for (Transaction d: transactions) { //transactions is the argument passed into the function
+            if (d.getAmount()>0){ // will only bring us the negative transactions
+                System.out.println("Transaction " + counter); // lists transaction #
+                System.out.println(d.getDate() + "\n " + d.getTime() + "\n " + d.getDescription() + " \n" + d.getVendor() + " \n" + d.getAmount());
+                counter++; //increments the count of the transaction
+            }
+        }}
 
 
 
@@ -85,7 +93,7 @@ public class Main { //main class
                 ; // change this display all transactions (create a method?)
                 break;
             case "D":
-            case "d":
+            case "d": allDeposits(get_transaction()); // get transactions is returnign the transaction array
                 // change this to display only positive entries (create a method)
                 break;
             case "P":
