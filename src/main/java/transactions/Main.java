@@ -101,7 +101,7 @@ public class Main { //main class
                 negPayments(get_transaction()); // displays negpayments method , gets the transactions
                 break;
             case "R":
-            case "r": // open a new screen that allows user to run predefined reports or a custom search
+            case "r": reports();
                 break;
             case "H":
             case "h": board(); // go back to the home screen
@@ -188,6 +188,49 @@ public class Main { //main class
                 System.out.println("Invalid Option - Try Again!");
                 board(); // invalid option go back to the main board
     }}
+    public static void reports () throws IOException {
+        System.out.println("BANK"); // fix this
+        System.out.println("Choose An Option from the following");
+        System.out.println("1 - Month to Date " );
+        System.out.println("2 - previous month t");
+        System.out.println("3 - year to date ");
+        System.out.println("4 - previous year");
+        System.out.println("5 - search by vendor");
+        System.out.println("0 - Back");
+
+        Scanner scanner = new Scanner(System.in);
+        int input = scanner.nextInt();
+        scanner.nextLine();
+
+        switch //choose an option
+        (input) {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5: vendor(get_transaction());
+                break; // exit screen
+            case 0: ledger();
+            default:
+        }
+    }
+    public static void vendor (ArrayList<Transaction> transactions){ //search by vendor , search my name , all transaction w name pop up
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("enter vendor");
+        String vendor = scanner.nextLine();
+        int counter = 1;
+        for (Transaction d: transactions) { //transactions is the argument passed into the function
+            if (d.getVendor().equals(vendor)){ // checks if vendor in file is same as input we passed in
+                System.out.println("Transaction " + counter); // lists transaction #
+                System.out.println(d.getDate() + "\n " + d.getTime() + "\n " + d.getDescription() + " \n" + d.getVendor() + " \n" + d.getAmount());
+                counter++; //increments the count of the transaction
+            }
+        }
+    }
     public static void main(String[] args) throws IOException { //main method
         board();
 
