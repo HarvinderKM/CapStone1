@@ -204,7 +204,7 @@ public class Main { //main class
 
         switch //choose an option
         (input) {
-            case 1:
+            case 1: MonthToDate(get_transaction());
                 break;
             case 2:
                 break;
@@ -231,6 +231,35 @@ public class Main { //main class
             }
         }
     }
+    public static void MonthToDate (ArrayList<Transaction> transactions){ // new method for month to date
+        int currentMonth = LocalDate.now().getMonthValue(); //gets int alue of the current month
+        int counter = 1;
+        for (Transaction d: transactions) { //for loop,
+            int monthForCsv = d.getDate().getMonthValue(); // gettign the int value of the month in the csv file
+            if (currentMonth == monthForCsv){ // checking if both months are the same, current and csv
+                System.out.println("Transaction " + counter); // lists transaction #
+                System.out.println(d.getDate() + "\n " + d.getTime() + "\n " + d.getDescription() + " \n" + d.getVendor() + " \n" + d.getAmount());
+
+                counter++; //increments the count of the transaction
+            }
+        }
+    }
+
+    public static void previousMonth (ArrayList<Transaction> transactions){ // new method for previous month
+        int currentMonth = LocalDate.now().getMonthValue(); //gets int alue of the current month
+        int counter = 1;
+        for (Transaction d: transactions) { //for loop,
+            int monthForCsv = d.getDate().getMonthValue(); // gettign the int value of the month in the csv file
+            if (currentMonth == monthForCsv){ // checking if both months are the same, current and csv
+                System.out.println("Transaction " + counter); // lists transaction #
+                System.out.println(d.getDate() + "\n " + d.getTime() + "\n " + d.getDescription() + " \n" + d.getVendor() + " \n" + d.getAmount());
+
+                counter++; //increments the count of the transaction
+            }
+        }
+    }
+
+
     public static void main(String[] args) throws IOException { //main method
         board();
 
