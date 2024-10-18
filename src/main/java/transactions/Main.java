@@ -56,8 +56,6 @@ public class Main { //main class
             System.out.println("AN ERROR OCCURRED, TRY AGAIN");
         }
 
-
-
     public static void allEntries () throws IOException {
         // This method to display all entries
         //pass in the array list
