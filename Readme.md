@@ -8,7 +8,7 @@ once you run the program, it gives you options to choose form which include: mak
 
 ## Images of Application Screen: 
 When you first run the program: 
-![Screenshot2024-10-17at8.36.45 PM.png](../../../../Screenshot%202024-10-17%20at%208.36.45%E2%80%AFPM.png)
+![Screenshot2024-10-17at8.36.45 PM.png](../../../../)
 Ledgar Screen: 
 ![Screenshot2024-10-17at8.37.39 PM.png](../../../../Screenshot%202024-10-17%20at%208.37.39%E2%80%AFPM.png)
 ## Interesting piece of code:
